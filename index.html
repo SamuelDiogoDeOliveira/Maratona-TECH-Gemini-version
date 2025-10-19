@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-lang-key="pageTitle">
+      Desperdício Zero | Combate ao Desperdício de Alimentos
+    </title>
+    <meta
+      name="description"
+      content="Informações, causas, consequências e soluções para o desperdício de alimentos no Brasil. Portal Educativo e Institucional."
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/fe9e6ace96.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="icon" href="🍏" />
+  </head>
+  <body data-lang="pt-BR">
+    <header class="header">
+      <div class="container header-content">
+        <a href="#" class="logo"
+          >Desperdício <span class="highlight">Zero</span></a
+        >
+
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="#causas" data-lang-key="navCausas">Causas</a></li>
+            <li>
+              <a href="#consequencias" data-lang-key="navImpacto">Impacto</a>
+            </li>
+            <li>
+              <a href="#solucoes" data-lang-key="navSolucoes">Soluções</a>
+            </li>
+            <li>
+              <a href="#noticias" data-lang-key="navNoticias">Notícias</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <div class="lang-selector-container">
+            <button
+              id="lang-toggle"
+              aria-label="Alterar Idioma"
+              class="icon-btn lang-btn"
+            >
+              <span id="current-flag">🇧🇷</span>
+            </button>
+            <div id="lang-dropdown" class="lang-dropdown hidden">
+              <button class="lang-option" data-lang-value="pt-BR">
+                🇧🇷 Português
+              </button>
+              <button class="lang-option" data-lang-value="en-US">
+                🇺🇸 English
+              </button>
+            </div>
+          </div>
+
+          <button
+            id="theme-toggle"
+            aria-label="Alternar Modo Escuro/Claro"
+            class="icon-btn theme-btn"
+          >
+            <span id="theme-icon">🌙</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <button
+      id="menu-toggle"
+      aria-label="Abrir Sumário Detalhado"
+      class="icon-btn menu-btn fixed-right"
+    >
+      ☰
+    </button>
+
+    <aside id="sidebar" class="sidebar">
+      <button
+        id="sidebar-close"
+        aria-label="Fechar Menu"
+        class="icon-btn close-btn"
+      >
+        ✕
+      </button>
+      <h3 class="sidebar-title" data-lang-key="sumarioTitle">
+        Sumário Detalhado
+      </h3>
+      <ul class="sidebar-list">
+        <li>
+          <a href="#causas" class="sidebar-link" data-lang-key="sumarioCausas"
+            >Causas do Desperdício</a
+          >
+        </li>
+        <li>
+          <a
+            href="#consequencias"
+            class="sidebar-link"
+            data-lang-key="sumarioImpacto"
+            >Impacto Social e Ambiental</a
+          >
+        </li>
+        <li>
+          <a
+            href="#solucoes"
+            class="sidebar-link"
+            data-lang-key="sumarioSolucoes"
+            >Soluções Práticas</a
+          >
+        </li>
+        <li>
+          <a
+            href="#nova-categoria"
+            class="sidebar-link"
+            data-lang-key="sumarioPoliticas"
+            >Políticas Públicas</a
+          >
+        </li>
+        <li>
+          <a
+            href="#curiosidades"
+            class="sidebar-link"
+            data-lang-key="sumarioFatos"
+            >Fatos e Curiosidades</a
+          >
+        </li>
+      </ul>
+      <h4 class="sidebar-subtitle" data-lang-key="sumarioAprofunde">
+        Aprofunde o Conhecimento
+      </h4>
+      <button
+        class="modal-trigger"
+        data-modal="producao"
+        data-lang-key="sumarioBtnProducao"
+      >
+        Perdas na Produção (Visual)
+      </button>
+      <button
+        class="modal-trigger"
+        data-modal="consumo"
+        data-lang-key="sumarioBtnConsumo"
+      >
+        Desperdício Doméstico (Guia)
+      </button>
+    </aside>
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <h2 data-lang-key="heroTitle">
+            O Desafio Urgente do Desperdício de Alimentos no Brasil
+          </h2>
+          <p data-lang-key="heroText">
+            Descubra o impacto e as formas de combater a perda de alimentos em
+            nosso país, onde quase 30% da produção é desperdiçada. Nosso portal
+            fornece dados e soluções baseadas em referências nacionais.
+          </p>
+          <a href="#solucoes" class="btn" data-lang-key="heroBtn"
+            >Mude Seus Hábitos</a
+          >
+        </div>
+      </section>
+
+      <section id="causas" class="section">
+        <div class="container">
+          <h2 class="section-title" data-lang-key="causasTitle">
+            Principais Causas do Desperdício
+          </h2>
+
+          <div class="card-grid">
+            <div class="card">
+              <img
+                src="./public/PerdaColeita.jpg"
+                alt="Colheita e Campo"
+                class="card-img"
+              />
+              <div class="card-content">
+                <h3 class="card-title" data-lang-key="causasCard1Title">
+                  1. Perdas na Colheita e Transporte
+                </h3>
+                <p data-lang-key="causasCard1Text">
+                  O Brasil perde cerca de 10 milhões de toneladas anualmente
+                  nesta fase devido ao manuseio inadequado, logística deficiente
+                  e descarte de itens que não se enquadram em padrões estéticos.
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <img
+                src="./public/VarejoFalha.jpg"
+                alt="Supermercado com Alimentos"
+                class="card-img"
+              />
+              <div class="card-content">
+                <h3 class="card-title" data-lang-key="causasCard2Title">
+                  2. Falhas no Varejo e Distribuição
+                </h3>
+                <p data-lang-key="causasCard2Text">
+                  Nos pontos de venda, grandes volumes de alimentos frescos são
+                  descartados por motivos como excesso de estoque, danos na
+                  armazenagem e falta de giro adequado (regra FIFO).
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <img
+                src="./public/DesperdicioFinal.webp"
+                alt="Desperdício Doméstico"
+                class="card-img"
+              />
+              <div class="card-content">
+                <h3 class="card-title" data-lang-key="causasCard3Title">
+                  3. Desperdício no Consumo Final
+                </h3>
+                <p data-lang-key="causasCard3Text">
+                  O maior volume de perdas evitáveis acontece na casa do
+                  consumidor, chegando a 30% do total no país, por conta de
+                  compras não planejadas e armazenamento incorreto.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="source-box">
+            <p data-lang-key="causasEstatistica">
+              Estatística Central: O Brasil perde cerca de 27 milhões de
+              toneladas de alimentos por ano. Esta quantidade é suficiente para
+              alimentar o país por meses.
+            </p>
+            <small
+              ><a href="#fonte1" data-lang-key="causasFonte1"
+                >Fonte: WRI Brasil (Informação Oficial)</a
+              >
+              |
+              <a href="#fonte2" data-lang-key="causasFonte2"
+                >Fonte: Embrapa (Informação Oficial)</a
+              ></small
+            >
+          </div>
+        </div>
+      </section>
+
+      <section id="consequencias" class="section bg-light">
+        <div class="container">
+          <h2 class="section-title" data-lang-key="consequenciasTitle">
+            O Duplo Impacto: Social e Ambiental
+          </h2>
+
+          <div class="card-grid">
+            <div class="consequence-card">
+              <h3 class="card-title" data-lang-key="consequenciasCard1Title">
+                1. Crise de Insegurança Alimentar
+              </h3>
+              <p data-lang-key="consequenciasCard1Text">
+                Os alimentos descartados poderiam alimentar mais de 13 milhões
+                de brasileiros em situação de fome extrema. O desperdício é um
+                espelho cruel da desigualdade social.
+              </p>
+            </div>
+
+            <div class="consequence-card">
+              <h3 class="card-title" data-lang-key="consequenciasCard2Title">
+                2. Emissões e Mudanças Climáticas
+              </h3>
+              <p data-lang-key="consequenciasCard2Text">
+                Quando o lixo orgânico vai para aterros, ele gera gás metano
+                (CH4), um gás de efeito estufa 25 vezes mais potente que o CO2.
+                Ao combater o desperdício, combatemos o aquecimento global.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="solucoes" class="section">
+        <div class="container">
+          <h2 class="section-title" data-lang-key="solucoesTitle">
+            Seja a Solução: Ações Práticas
+          </h2>
+
+          <div class="solution-grid">
+            <div class="solution-item">
+              <img
+                src="./public/CalendarioGrenn.png"
+                alt="Ícone de Lista"
+                class="solution-icon"
+              />
+              <h3 data-lang-key="solucoesCard1Title">Planejamento Semanal</h3>
+              <p data-lang-key="solucoesCard1Text">
+                Faça uma lista e organize a geladeira. Use a regra Primeiro que
+                Vence, Primeiro que Sai (PVPS).
+              </p>
+            </div>
+
+            <div class="solution-item">
+              <img
+                src="./public/CozinhaIcon.png"
+                alt="Ícone de Culinária"
+                class="solution-icon"
+              />
+              <h3 data-lang-key="solucoesCard2Title">
+                Culinária de Aproveitamento
+              </h3>
+              <p data-lang-key="solucoesCard2Text">
+                Utilize cascas, talos e sementes integralmente nas receitas.
+                Sobras viram o almoço do dia seguinte.
+              </p>
+            </div>
+
+            <div class="solution-item">
+              <img
+                src="./public/ComidaVerdeIconTech.png"
+                alt="Ícone de Doação"
+                class="solution-icon"
+              />
+              <h3 data-lang-key="solucoesCard3Title">
+                Apoie Bancos de Alimentos
+              </h3>
+              <p data-lang-key="solucoesCard3Text">
+                A Lei 14.016/2020 protege o doador de alimentos. Apoie a doação
+                de excedentes em bom estado.
+              </p>
+            </div>
+
+            <div class="solution-item">
+              <img
+                src="./public/ReciclagemVerdeTech.png"
+                alt="Ícone de Compostagem"
+                class="solution-icon"
+              />
+              <h3 data-lang-key="solucoesCard4Title">Compostagem</h3>
+              <p data-lang-key="solucoesCard4Text">
+                Transforme resíduos orgânicos inevitáveis em adubo, reduzindo
+                drasticamente o lixo nos aterros.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="nova-categoria" class="section bg-light">
+        <div class="container">
+          <h2 class="section-title" data-lang-key="sumarioPoliticas">
+            Políticas Públicas e Legislação
+          </h2>
+          <p data-lang-key="politicasText">
+            O combate ao desperdício é reforçado por leis como a Lei 14.016/2020
+            (incentivo à doação de alimentos) e pela Agenda 2030 da ONU (ODS
+            12.3). É fundamental que empresas e cidadãos conheçam e cumpram
+            estas diretrizes.
+          </p>
+        </div>
+      </section>
+
+      <section id="noticias" class="section">
+        <div class="container">
+          <h2 class="section-title" data-lang-key="navNoticias">
+            Notícias e Casos de Sucesso
+          </h2>
+          <p data-lang-key="noticiasText">
+            Projetos de bancos de alimentos e a startup "Comida Invisível" são
+            exemplos de iniciativas brasileiras que estão transformando a forma
+            como lidamos com os excedentes. Mantenha-se atualizado sobre o tema.
+          </p>
+        </div>
+      </section>
+
+      <section id="curiosidades" class="section bg-light">
+        <div class="container">
+          <h2 class="section-title" data-lang-key="sumarioFatos">
+            Fatos e Curiosidades
+          </h2>
+          <p data-lang-key="curiosidadesText">
+            Você sabia que a maior parte da água utilizada na agricultura (cerca
+            de 70% da água doce do planeta) é desperdiçada quando o alimento vai
+            para o lixo? Combater o desperdício é também combater a escassez de
+            água.
+          </p>
+        </div>
+      </section>
+
+      <div
+        id="info-modal"
+        class="modal"
+        aria-modal="true"
+        role="dialog"
+        aria-labelledby="modal-title"
+      >
+        <div class="modal-content">
+          <button class="modal-close" aria-label="Fechar Pop-up">✕</button>
+          <h3
+            id="modal-title"
+            class="modal-title"
+            data-lang-key="modalDefaultTitle"
+          >
+            Informação Detalhada
+          </h3>
+
+          <div class="modal-body">
+            <p data-lang-key="modalDefaultText">
+              O conteúdo do sumário será injetado pelo JavaScript.
+            </p>
+          </div>
+
+          <div class="modal-footer">
+            <p class="modal-source" data-lang-key="modalDefaultSource">
+              Fontes: Variáveis.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div id="modal-backdrop" class="modal-backdrop"></div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>
+          &copy; 2025 Desperdício Zero. Projeto Educacional. Todos os direitos
+          reservados.
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,675 @@
+/* -------------------------------------- */
+/* 5. Estilo (CSS) - Cores e Variáveis */
+/* -------------------------------------- */
+
+:root {
+    /* Paleta de Cores Aprimorada (Light Mode - Padrão) */
+    --primary-color: #388e3c; /* Verde Floresta */
+    --secondary-color: #fbc02d; /* Amarelo Mostarda */
+    --text-color: #263238; /* Cinza Escuro */
+    --background-color: #fcfcfc; /* Branco Suave */
+    --light-bg: #f0f4f7; /* Cinza Gelo */
+    --card-bg: #ffffff;
+    --border-color: #e0e0e0;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    /* Cores Específicas para Footer (Modo Claro) */
+    --footer-bg: #f0f4f7; /* Cinza claro */
+    --footer-text: #263238; /* Cinza escuro */
+
+    --font-stack: 'Poppins', sans-serif;
+    --border-radius: 8px;
+    --transition-time: 0.3s ease;
+
+    --subtle-pattern-color: #e5e5e5;
+    --subtle-pattern: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23e5e5e5' fill-opacity='0.4'%3E%3Cpath fill-rule='evenodd' d='M0 0h3v3H0V0zm3 3h3v3H3V3z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Aplica o padrão de fundo sutil no corpo */
+body {
+    font-family: var(--font-stack);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    background-image: var(--subtle-pattern);
+    transition: background-color var(--transition-time), color var(--transition-time);
+    font-weight: 400; 
+    margin: 0;
+    padding: 0;
+}
+
+/* Base Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* -------------------------------------- */
+/* Dark Mode (Modo Escuro) - CORES AJUSTADAS */
+/* -------------------------------------- */
+body.dark-mode {
+    --primary-color: #4CAF50; /* Verde mais claro/brilhante para contraste */
+    --text-color: #e3f2fd; 
+    --background-color: #1c2a38; 
+    --light-bg: #263238; 
+    --card-bg: #37474f; 
+    --border-color: #455a64;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+
+    /* Cores Específicas para Footer (Modo Escuro) */
+    --footer-bg: #ffffff; /* Branco/Claro */
+    --footer-text: #263238; /* Cinza escuro/Preto */
+
+    --subtle-pattern-color: #455a64;
+    --subtle-pattern: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23455a64' fill-opacity='0.4'%3E%3Cpath fill-rule='evenodd' d='M0 0h3v3H0V0zm3 3h3v3H3V3z'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: var(--subtle-pattern);
+}
+
+/* -------------------------------------- */
+/* 1. Cabeçalho (Header) e Ações */
+/* -------------------------------------- */
+
+.header {
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--text-color);
+}
+.logo .highlight {
+    color: var(--primary-color);
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+.nav-list a {
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 5px 0;
+    position: relative;
+    transition: color var(--transition-time);
+}
+.nav-list a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+.nav-list a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width var(--transition-time);
+}
+.nav-list a:hover::after {
+    width: 100%;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    color: var(--text-color);
+    padding: 5px;
+    transition: color var(--transition-time), transform 0.1s;
+}
+.icon-btn:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+/* Estilo para Emojis (Bandeiras, Lua/Sol) */
+.lang-btn span, #theme-icon {
+    font-size: 1.5em;
+    line-height: 1;
+}
+
+/* Dropdown de Idiomas */
+.lang-selector-container {
+    position: relative;
+    display: inline-block;
+}
+.lang-dropdown {
+    position: absolute;
+    top: 100%; 
+    right: 0;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 5px 0;
+    min-width: 150px;
+    z-index: 101;
+}
+.lang-dropdown.hidden {
+    display: none;
+}
+.lang-option {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+    font-weight: 400;
+}
+.lang-option:hover {
+    background-color: var(--light-bg);
+}
+.lang-option span {
+    margin-right: 8px;
+}
+
+
+/* -------------------------------------- */
+/* Botão de Sumário Fixo (Menu Hamburguer) */
+/* -------------------------------------- */
+
+.fixed-right {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 999;
+    box-shadow: var(--shadow);
+    border: none;
+    background-color: var(--secondary-color);
+    color: var(--text-color) !important; /* CORREÇÃO: Usa a cor de texto padrão (escura no modo claro) */
+    padding: 15px 18px;
+    border-radius: 50%; 
+    line-height: 1;
+    font-weight: 500;
+    transition: background-color var(--transition-time), transform 0.2s;
+}
+
+.fixed-right:hover {
+    background-color: #ff8826;
+    transform: translateY(-50%) scale(1.05); 
+}
+
+
+/* -------------------------------------- */
+/* 3. Menu Lateral (Sidebar / Off-Canvas) */
+/* -------------------------------------- */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px; 
+    width: 300px;
+    height: 100%;
+    background-color: var(--card-bg);
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: right var(--transition-time);
+    padding: 20px;
+    overflow-y: auto;
+}
+.sidebar.visible {
+    right: 0;
+}
+
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 990;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-time), visibility var(--transition-time);
+}
+.sidebar-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5em;
+    color: var(--text-color);
+}
+.sidebar-title {
+    color: var(--primary-color);
+    margin-top: 40px;
+    font-size: 1.6em;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+.sidebar-subtitle {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: var(--text-color);
+    font-size: 1.1em;
+    font-weight: 600;
+}
+.sidebar-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.sidebar-list li {
+    margin-bottom: 8px;
+}
+.sidebar-link {
+    display: block;
+    padding: 8px 0;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.sidebar-link:hover {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+.sidebar button.modal-trigger {
+    width: 100%;
+    background-color: var(--light-bg);
+    border: 1px solid var(--border-color);
+    padding: 10px 15px;
+    margin-top: 10px;
+    text-align: left;
+    border-radius: var(--border-radius);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+.sidebar button.modal-trigger:hover {
+    background-color: var(--primary-color);
+    color: var(--card-bg);
+}
+
+
+/* -------------------------------------- */
+/* 4. Modal de Conteúdo Detalhado */
+/* -------------------------------------- */
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    z-index: 2000;
+    width: 90%;
+    max-width: 600px;
+    padding: 30px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-time), visibility var(--transition-time), transform var(--transition-time);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+.modal.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-time), visibility var(--transition-time);
+}
+.modal-backdrop.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* NOVO: Efeito de Piscar (Flash) ao chegar no destino */
+.flash {
+    /* Define o estado inicial da animação */
+    animation: flashBackground 0.4s ease-out; 
+}
+@keyframes flashBackground {
+    0% { background-color: rgba(255, 255, 102, 0.4); } /* Amarelo sutil */
+    100% { background-color: transparent; }
+}
+
+/* CORREÇÃO APLICADA: Botão 'X' sem caixa, fica amarelo no hover */
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5em;
+    cursor: pointer;
+    /* Remover background e padding que criavam a "caixa" */
+    background: none; 
+    padding: 5px; /* Adiciona padding para área de clique, mas o fundo é transparente */
+    border-radius: 50%;
+    color: var(--text-color);
+    transition: transform 0.3s ease, color 0.3s; 
+}
+.modal-close:hover {
+    color: var(--secondary-color); /* Fica amarelo no hover */
+    transform: rotate(90deg) scale(1.1); /* Animação: Gira e aumenta levemente */
+}
+
+.modal-title {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+.modal-body ul, .modal-body ol {
+    margin-left: 20px;
+}
+.modal-body li {
+    margin-bottom: 8px;
+}
+.modal-source {
+    margin-top: 20px;
+    font-size: 0.8em;
+    color: #909090;
+    border-top: 1px solid var(--border-color);
+    padding-top: 10px;
+}
+body.dark-mode .modal-source {
+    color: #a0a0a0;
+}
+
+
+/* -------------------------------------- */
+/* Seções e Componentes */
+/* -------------------------------------- */
+
+.section {
+    padding: 60px 0;
+}
+
+/* TÍTULOS DE SEÇÃO AUMENTADOS (OS QUE NÃO ESTÃO EM CARDS) */
+.section-title {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2.5em; /* AUMENTADO */
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 10px;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(56, 142, 60, 0.7), rgba(56, 142, 60, 0.9)), 
+                url('../img/hero-bg.jpg') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    border-bottom: 5px solid var(--secondary-color); 
+}
+body.dark-mode .hero {
+    background: linear-gradient(rgba(76, 175, 80, 0.6), rgba(76, 175, 80, 0.8)), 
+                url('../img/hero-bg.jpg') no-repeat center center/cover;
+}
+
+.hero h2 {
+    color: white;
+    font-size: 4em; /* AUMENTADO */
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+.hero p {
+    font-size: 1.4em; 
+    max-width: 800px;
+    margin-bottom: 30px;
+}
+/* BOTÃO PRINCIPAL: COR DO TEXTO FORÇADA PARA BRANCO */
+.btn {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: #FFFFFF !important; /* CORREÇÃO: Texto branco em todos os temas */
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background-color var(--transition-time), transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+.btn:hover {
+    background-color: #ff8826;
+    transform: translateY(-2px);
+    text-decoration: none;
+    color: #FFFFFF !important; /* Garante que o hover também seja branco */
+}
+
+
+/* Cards (Causas Section) */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+.card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+.card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.card-content {
+    padding: 20px;
+    flex-grow: 1;
+}
+.card-title {
+    color: var(--primary-color);
+    font-size: 1.3em; /* MANTIDO NORMAL */
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.source-box {
+    background-color: var(--light-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    border-left: 5px solid var(--secondary-color);
+}
+.source-box p {
+    font-style: italic;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+.source-box small a {
+    font-weight: 500;
+    font-size: 0.9em;
+}
+
+/* Consequence Cards (Impacto) */
+.consequence-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--primary-color);
+    transition: border-left-color 0.3s;
+}
+.consequence-card:hover {
+    border-left-color: var(--secondary-color);
+}
+
+
+/* Solution Grid */
+.solution-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+.solution-item {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--light-bg);
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+.solution-item:hover {
+    background-color: var(--card-bg);
+    box-shadow: var(--shadow);
+}
+.solution-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+    filter: grayscale(100%);
+    opacity: 0.8;
+}
+.solution-item:hover .solution-icon {
+    filter: none;
+    opacity: 1;
+}
+.solution-item h3 {
+    color: var(--primary-color);
+    font-size: 1.2em; /* MANTIDO NORMAL */
+    margin-top: 0;
+}
+
+/* CORREÇÃO APLICADA: Footer Adaptável */
+.footer {
+    background-color: var(--footer-bg); /* Usa variável de fundo do tema */
+    color: var(--footer-text); /* Usa variável de texto do tema */
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9em;
+    transition: background-color var(--transition-time), color var(--transition-time);
+}
+.footer a {
+    color: var(--primary-color); /* Mantém o link com a cor primária */
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.footer a:hover {
+    color: var(--secondary-color);
+}
+
+
+/* -------------------------------------- */
+/* Media Queries (Responsividade) */
+/* -------------------------------------- */
+
+@media (max-width: 900px) {
+    .header .nav {
+        display: none; /* Esconde a navegação principal em telas menores */
+    }
+    .header-content {
+        padding: 10px 0;
+    }
+    .hero {
+        height: auto;
+        padding: 80px 0;
+    }
+    .hero h2 {
+        font-size: 3em; /* AJUSTADO PARA RESPONSIVIDADE */
+    }
+    .hero p {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 600px) {
+    .section {
+        padding: 40px 0;
+    }
+    .section-title {
+        font-size: 2.2em; /* AJUSTADO PARA RESPONSIVIDADE */
+        margin-bottom: 30px;
+    }
+    .hero h2 {
+        font-size: 2.5em; /* AJUSTADO PARA RESPONSIVIDADE */
+    }
+    .hero p {
+        font-size: 1em;
+    }
+    /* Move o botão fixo para a parte inferior para não atrapalhar o topo */
+    .fixed-right {
+        top: auto;
+        bottom: 20px;
+        right: 20px;
+        transform: none;
+    }
+    .sidebar {
+        width: 100%; /* Sidebar ocupa toda a largura em telas muito pequenas */
+    }
+    .modal {
+        width: 95%;
+    }
+}
